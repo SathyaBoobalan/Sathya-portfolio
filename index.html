@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Sathya Boobalan — Penetration Tester & Bug Bounty Hunter. Projects, services, certificates and contact." />
+  <meta name="author" content="Sathya Boobalan" />
+  <meta name="google" content="notranslate" />
+
+  <title>Sathya Boobalan — Penetration Tester & Bug Bounty Hunter</title>
+
+  <!-- Bootstrap (kept for compatibility) -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Tailwind CDN — quick utility classes -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom styles -->
+  <style>
+    :root{
+      --bg-1:#05060a;
+      --panel:#0b0f16;
+      --glass: rgba(255,255,255,0.03);
+      --muted: #9aa4b2;
+      --neon: #0ea5e9; /* cyan-blue */
+      --accent: rgba(14,165,233,0.12);
+      --card-border: rgba(14,165,233,0.12);
+      --glass-strong: rgba(255,255,255,0.04);
+    }
+
+    html,body { height:100%; margin:0; background: linear-gradient(180deg, #040608 0%, #0b0f12 100%); color:#e6eef6; font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+
+    /* PARTICLES CANVAS */
+    #particles {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Container */
+    .site {
+      position: relative;
+      z-index: 5; /* above particles */
+      min-height: 100vh;
+    }
+
+    /* HERO */
+    .hero {
+      background: #000000; /* solid black per request */
+      padding: 6rem 1rem 4rem;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-inner { max-width: 980px; z-index: 2; }
+
+    .title {
+      font-size: clamp(28px, 5vw, 46px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #e6f7ff;
+      text-shadow: 0 8px 40px rgba(14,165,233,0.06);
+    }
+
+    .title .neon {
+      color: var(--neon);
+      text-shadow:
+        0 0 8px rgba(14,165,233,0.18),
+        0 8px 30px rgba(14,165,233,0.06);
+    }
+
+    .subtitle { color: var(--muted); margin-top: 0.5rem; font-weight:600; font-size:1.05rem; }
+
+    /* social icons */
+    .socials a { color: #cfeffb; opacity: .9; transition: transform .18s ease, color .18s ease; }
+    .socials a:hover { color: var(--neon); transform: translateY(-4px); }
+
+    /* SECTION LAYOUT */
+    .section { padding: 4.5rem 1rem; }
+    .maxw { max-width:1100px; margin:0 auto; }
+
+    .section-title {
+      display:flex;
+      align-items:baseline;
+      gap:14px;
+      margin-bottom:1.25rem;
+    }
+    .section-title h2 {
+      font-size:1.45rem; font-weight:700; color:#eaf6ff;
+    }
+    .section-title .bar {
+      height:36px; width:6px; border-radius:4px; background: linear-gradient(180deg,var(--neon), #7dd3fc);
+      box-shadow: 0 6px 18px rgba(14,165,233,0.08);
+    }
+    .muted { color: var(--muted); }
+
+    /* GLASS CARD */
+    .glass-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.15rem;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+      overflow:hidden;
+    }
+    .glass-card:hover { transform: translateY(-8px); border-color: rgba(14,165,233,0.22); box-shadow: 0 30px 60px rgba(2,6,23,0.7); }
+
+    /* project image */
+    .project-img { width:100%; height:190px; object-fit:cover; border-radius:8px; display:block; margin-bottom:.75rem; }
+
+    /* small labels/tags */
+    .tag {
+      display:inline-block; font-size:.78rem; padding:.35rem .6rem; border-radius:999px; background: rgba(14,165,233,0.06); color: #bfeeff; border:1px solid rgba(14,165,233,0.08);
+    }
+
+    /* services icon */
+    .service-icon {
+      width:68px; height:68px; display:inline-grid; place-items:center; border-radius:12px;
+      background: linear-gradient(135deg, rgba(14,165,233,0.08), rgba(125,211,252,0.02));
+      box-shadow: 0 6px 18px rgba(14,165,233,0.04) inset;
+      margin-bottom:.9rem;
+    }
+
+    /* achievements carousel fallback */
+    .cert-thumb { width:100%; height:160px; object-fit:cover; border-radius:6px; }
+
+    /* education */
+    .edu-item { display:flex; gap:12px; align-items:flex-start; }
+    .edu-year { color:var(--neon); font-weight:700; min-width:86px; }
+
+    /* contact */
+    .contact-card { display:flex; gap:14px; align-items:center; justify-content:space-between; padding:1rem; }
+    .btn-cta {
+      background: linear-gradient(90deg, rgba(14,165,233,0.14), rgba(96,165,250,0.06));
+      color: #cfeffb; padding:.6rem 1rem; border-radius:10px; border:1px solid rgba(14,165,233,0.12);
+      display:inline-flex; gap:.6rem; align-items:center; font-weight:700;
+    }
+
+    /* footer */
+    footer { padding:2rem 1rem; text-align:center; color:var(--muted); border-top:1px solid rgba(255,255,255,0.02); }
+
+    /* responsive tweaks */
+    @media (max-width: 768px) {
+      .hero { padding:4rem 1rem 3rem; }
+      .project-img { height:150px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Particles canvas (behind content) -->
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <div class="site">
+
+    <!-- HERO (solid black with neon text) -->
+    <header class="hero" role="banner" aria-label="Hero section">
+      <div class="hero-inner">
+        <h1 class="title">I am <span class="neon">Sathya Boobalan</span></h1>
+        <p class="subtitle muted" style="margin-top:8px;">Penetration Tester · Bug Bounty Hunter · Security Researcher</p>
+
+        <div class="mt-6 socials flex items-center justify-center gap-6" aria-hidden="false" role="navigation">
+          <a class="text-2xl" href="https://sathyaboobalan.tiiny.site" title="Resume" aria-label="Resume (download)" target="_blank" rel="noopener">
+            <i class="fa fa-file-alt"></i>
+          </a>
+          <a class="text-2xl" href="https://in.linkedin.com/in/sathya-boobalan-07b11024a" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a class="text-2xl" href="mailto:sathyaboobalan.r2003@gmail.com" title="Email" aria-label="Email">
+            <i class="fa fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="main" role="main">
+
+      <!-- ABOUT (kept as you liked — slightly restyled) -->
+      <section id="about" class="section">
+        <div class="maxw">
+          <div class="section-title">
+            <div class="bar" aria-hidden="true"></div>
+            <h2>About Me</h2>
+          </div>
+
+          <div class="glass-card">
+            <div class="row">
+              <div class="col-md-4 col-sm-12" style="padding-right:16px">
+                <img src="./assets/images/dp.jpg" alt="Sathya Boobalan" style="width:100%;border-radius:10px;object-fit:cover" />
+              </div>
+              <div class="col-md-8 col-sm-12" style="padding-left:16px">
+                <p style="margin-top:0;color:#dbefff">
+                  I am a cybersecurity enthusiast seeking an entry-level penetration testing position. With a keen interest in identifying and exploiting vulnerabilities, I aim to contribute to enhancing security measures.
+                </p>
+                <p style="color:#dbefff">
+                  I am passionate about uncovering and reporting weaknesses in the security structures of websites. As an active website bug bounty hunter, I utilize my expertise to identify vulnerabilities and fortify the defenses of online platforms, ensuring a safer and more secure web environment for all users.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="section bg-black/40">
+        <div class="maxw">
+          <div class="section-title">
+            <div class="bar" aria-hidden="true"></div>
+            <h2>Projects</h2>
+          </div>
+
+          <div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+            <!-- Project 1 -->
+            <article class="glass-card" aria-labelledby="proj1-title" tabindex="0">
+              <img src="./assets/images/project2.jpg" alt="Blockchain and AI" class="project-img">
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+                <div>
+                  <h3 id="proj1-title" style="font-weight:700;color:#eaf6ff;margin:0">Blockchain & AI for Medical Record Analysis</h3>
+                  <p class="muted" style="margin:6px 0 0;font-size:.92rem">Aug 2024 — Nov 2024</p>
+                </div>
+                <span class="tag" aria-hidden="true">AI • Blockchain</span>
+              </div>
+              <p class="muted" style="margin-top:.7rem;font-size:.95rem">Full-stack research project integrating blockchain, IPFS, and AI for secure medical record analysis and fracture detection.</p>
+              <div style="margin-top:12px;display:flex;gap:8px">
+                <a class="btn-cta" href="#" aria-label="View project code (GitHub)">
+                  <i class="fa fa-code"></i><span class="muted" style="color:#cfeffb">Code</span>
+                </a>
+                <a class="btn-cta" href="#" aria-label="View live demo">
+                  <i class="fa fa-eye"></i><span class="muted" style="color:#cfeffb">Demo</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="glass-card" aria-labelledby="proj2-title" tabindex="0">
+              <img src="./assets/images/vapt1.jpg" alt="VAPT Project" class="project-img">
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+                <div>
+                  <h3 id="proj2-title" style="font-weight:700;color:#eaf6ff;margin:0">Securing the Small Business — VAPT</h3>
+                  <p class="muted" style="margin:6px 0 0;font-size:.92rem">Jan 2024 — Apr 2024</p>
+                </div>
+                <span class="tag">Pentest • VAPT</span>
+              </div>
+              <p class="muted" style="margin-top:.7rem;font-size:.95rem">Comprehensive vulnerability assessment and remediation plan for small-to-medium business infrastructure and web services.</p>
+              <div style="margin-top:12px;display:flex;gap:8px">
+                <a class="btn-cta" href="#" aria-label="View report">
+                  <i class="fa fa-file-lines"></i><span class="muted" style="color:#cfeffb">Report</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- More project slots (left empty for you to add) -->
+            <article>
+              
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services" class="section">
+        <div class="maxw">
+          <div class="section-title">
+            <div class="bar" aria-hidden="true"></div>
+            <h2>Services</h2>
+          </div>
+
+          <div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+            <div class="glass-card" tabindex="0">
+              <div class="service-icon" aria-hidden="true"><i class="fa fa-shield-alt fa-lg" style="color:var(--neon)"></i></div>
+              <h3 style="margin-top:6px;color:#eaf6ff">Vulnerability Analysis</h3>
+              <p class="muted" style="margin-top:8px">Thorough scanning and validation of vulnerabilities with prioritized risk ratings and remediation suggestions.</p>
+            </div>
+
+            <div class="glass-card" tabindex="0">
+              <div class="service-icon" aria-hidden="true"><i class="fa fa-bug fa-lg" style="color:var(--neon)"></i></div>
+              <h3 style="margin-top:6px;color:#eaf6ff">Penetration Testing</h3>
+              <p class="muted" style="margin-top:8px">Web application and network penetration testing with proof-of-concept exploits and step-by-step remediation guidance.</p>
+            </div>
+
+            <div class="glass-card" tabindex="0">
+              <div class="service-icon" aria-hidden="true"><i class="fa fa-file-contract fa-lg" style="color:var(--neon)"></i></div>
+              <h3 style="margin-top:6px;color:#eaf6ff">CVE / Disclosure Reports</h3>
+              <p class="muted" style="margin-top:8px">Clear, professional writeups formatted for vendor disclosure and program submission (CVE-ready).</p>
+            </div>
+
+            <div class="glass-card" tabindex="0">
+              <div class="service-icon" aria-hidden="true"><i class="fa fa-lock fa-lg" style="color:var(--neon)"></i></div>
+              <h3 style="margin-top:6px;color:#eaf6ff">Security Consulting</h3>
+              <p class="muted" style="margin-top:8px">Advisory and mitigation planning for long-term security program improvements and secure SDLC integration.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACHIEVEMENTS -->
+      <section id="achievements" class="section bg-black/40">
+        <div class="maxw">
+          <div class="section-title">
+            <div class="bar" aria-hidden="true"></div>
+            <h2>Achievements & Certificates</h2>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px">
+            <div class="glass-card" tabindex="0">
+              <img src="./assets/images/certi1.jpg" alt="Cert 1" class="cert-thumb">
+              <h4 style="margin-top:8px;color:#eaf6ff">Certified in Cybersecurity (CC)</h4>
+              <p class="muted" style="margin-top:6px">Aug 31, 2024</p>
+            </div>
+
+            <div class="glass-card" tabindex="0">
+              <img src="./assets/images/certi2.jpg" alt="Cert 2" class="cert-thumb">
+              <h4 style="margin-top:8px;color:#eaf6ff">Be A White Hat Hacker and Pen Tester</h4>
+              <p class="muted" style="margin-top:6px">May 20, 2024</p>
+            </div>
+
+            <div class="glass-card" tabindex="0">
+              <img src="./assets/images/certi3.jpg" alt="Cert 3" class="cert-thumb">
+              <h4 style="margin-top:8px;color:#eaf6ff">How To Become Highly Paid Hacker</h4>
+              <p class="muted" style="margin-top:6px">Mar 31, 2024</p>
+            </div>
+<div class="glass-card" tabindex="0">
+              <img src="./assets/images/certificate.jpg" alt="Cert 3" class="cert-thumb">
+              <h4 style="margin-top:8px;color:#eaf6ff">Cyber Threat Intelligence 101</h4>
+              <p class="muted" style="margin-top:6px">May 07, 2025</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section id="education" class="section">
+        <div class="maxw">
+          <div class="section-title">
+            <div class="bar" aria-hidden="true"></div>
+            <h2>Education</h2>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px">
+            <div class="glass-card">
+              <div class="edu-item">
+                <div class="edu-year">2006–2021</div>
+                <div>
+                  <h4 style="margin:0;color:#eaf6ff">SSLC & HSC</h4>
+                  <p class="muted" style="margin-top:6px">Amalorpavam Higher Secondary School</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-card">
+              <div class="edu-item">
+                <div class="edu-year">2021–2025</div>
+                <div>
+                  <h4 style="margin:0;color:#eaf6ff">B.Tech (CSE)</h4>
+                  <p class="muted" style="margin-top:6px">Mankula Vinayagar Institute of Technology</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section bg-black/30">
+        <div class="maxw">
+          <div class="section-title">
+            <div class="bar" aria-hidden="true"></div>
+            <h2>Contact</h2>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:center">
+            <div>
+              <div class="glass-card contact-card">
+                <div>
+                  <h3 style="margin:0;color:#eaf6ff">Ready to collaborate?</h3>
+                  <p class="muted" style="margin:6px 0 0">For engagements, vulnerability disclosure, or mentoring — reach out.</p>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+                  <a class="btn-cta" href="mailto:sathyaboobalan.r2003@gmail.com" aria-label="Email Sathya">
+                    <i class="fa fa-envelope"></i><span>Mail</span>
+                  </a>
+                  <a class="btn-cta" href="https://in.linkedin.com/in/sathya-boobalan-07b11024a" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+                    <i class="fab fa-linkedin"></i><span>LinkedIn</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <aside>
+              <div class="glass-card" style="text-align:center;">
+                <h4 style="margin:0;color:#eaf6ff">Quick Info</h4>
+                <p class="muted" style="margin-top:8px">Email: <a href="mailto:sathyaboobalan.r2003@gmail.com" style="color:var(--neon)">sathyaboobalan.r2003@gmail.com</a></p>
+                <p class="muted">Location: India</p>
+                <div style="margin-top:8px;display:flex;justify-content:center;gap:12px">
+                  <a href="https://sathyaboobalan.tiiny.site" class="text-2xl" title="Resume" target="_blank" rel="noopener"><i class="fa fa-file-alt" style="color:#cfeffb"></i></a>
+                  <a href="https://in.linkedin.com/in/sathya-boobalan-07b11024a" class="text-2xl" title="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin" style="color:#cfeffb"></i></a>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="maxw">
+        <p style="margin:0">© <span id="year"></span> Sathya Boobalan. Built for bug bounty & security research.</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- jQuery / Bootstrap JS (kept for compatibility) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Particle System (lightweight canvas) -->
+  <script>
+    // Simple performant particle background — subtle cyber-blue dots and connecting lines.
+    (function () {
+      const canvas = document.getElementById('particles');
+      const ctx = canvas.getContext('2d');
+      let w = canvas.width = innerWidth;
+      let h = canvas.height = innerHeight;
+      const DPR = window.devicePixelRatio || 1;
+      canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+      ctx.scale(DPR, DPR);
+
+      const config = {
+        count: Math.max(50, Math.floor((w * h) / 10000)), // scale with screen
+        maxRadius: 2.2,
+        speed: 0.25,
+        lineDist: 140,
+        color: 'rgba(14,165,233,0.95)',
+        dotColor: 'rgba(14,165,233,0.16)'
+      };
+
+      const particles = [];
+
+      function rnd(min, max) { return Math.random() * (max - min) + min; }
+
+      function create() {
+        particles.length = 0;
+        for (let i = 0; i < config.count; i++) {
+          particles.push({
+            x: rnd(0, w),
+            y: rnd(0, h),
+            vx: rnd(-config.speed, config.speed),
+            vy: rnd(-config.speed, config.speed),
+            r: rnd(0.6, config.maxRadius),
+            alpha: rnd(0.25, 0.9)
+          });
+        }
+      }
+
+      function resize() {
+        w = canvas.width = innerWidth;
+        h = canvas.height = innerHeight;
+        canvas.width = w * DPR; canvas.height = h * DPR;
+        canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+        ctx.scale(DPR, DPR);
+        create();
+      }
+
+      function update() {
+        for (let p of particles) {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < -10) p.x = w + 10;
+          if (p.x > w + 10) p.x = -10;
+          if (p.y < -10) p.y = h + 10;
+          if (p.y > h + 10) p.y = -10;
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+
+        // draw connecting lines (optimized: only check neighbors by indexing)
+        for (let i = 0; i < particles.length; i++) {
+          const a = particles[i];
+          for (let j = i + 1; j < particles.length; j++) {
+            const b = particles[j];
+            const dx = a.x - b.x;
+            const dy = a.y - b.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < config.lineDist) {
+              const alpha = (1 - (dist / config.lineDist)) * 0.12;
+              ctx.strokeStyle = `rgba(14,165,233,${alpha})`;
+              ctx.lineWidth = 1;
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.stroke();
+            }
+          }
+        }
+
+        // draw dots
+        for (let p of particles) {
+          ctx.beginPath();
+          ctx.fillStyle = `rgba(14,165,233,${p.alpha * 0.25})`;
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      let raf;
+      function loop() {
+        update();
+        draw();
+        raf = requestAnimationFrame(loop);
+      }
+
+      // init
+      create();
+      loop();
+
+      // responsive
+      let resizeTimeout;
+      window.addEventListener('resize', () => {
+        cancelAnimationFrame(raf);
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+          resize();
+          loop();
+        }, 180);
+      });
+
+      // pause when tab hidden to save CPU
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) cancelAnimationFrame(raf);
+        else loop();
+      });
+
+    })();
+  </script>
+
+  <script>
+    // small helpers
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // keyboard focus outline improvement for accessibility
+    (function () {
+      const body = document.body;
+      function handleFirstTab(e) {
+        if (e.key === 'Tab') {
+          body.classList.add('user-is-tabbing');
+          window.removeEventListener('keydown', handleFirstTab);
+        }
+      }
+      window.addEventListener('keydown', handleFirstTab);
+    })();
+  </script>
+
+</body>
+</html>
