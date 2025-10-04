@@ -307,40 +307,70 @@
       </section>
 
       <!-- ACHIEVEMENTS -->
-      <section id="achievements" class="section bg-black/40">
-        <div class="maxw">
-          <div class="section-title">
-            <div class="bar" aria-hidden="true"></div>
-            <h2>Achievements & Certificates</h2>
-          </div>
+<section id="achievements" class="section bg-black/40">
+  <div class="maxw">
+    <div class="section-title">
+      <div class="bar" aria-hidden="true"></div>
+      <h2>Achievements & Certificates</h2>
+    </div>
 
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px">
-            <div class="glass-card" tabindex="0">
-              <img src="./assets/images/certi1.jpg" alt="Cert 1" class="cert-thumb">
-              <h4 style="margin-top:8px;color:#eaf6ff">Certified in Cybersecurity (CC)</h4>
-              <p class="muted" style="margin-top:6px">Aug 31, 2024</p>
-            </div>
+    <div class="grid-achievements" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px">
+      <!-- Certificate 1 -->
+      <div class="glass-card" tabindex="0">
+        <img src="./assets/images/certi1.jpg" alt="Cert 1" class="cert-thumb zoom-img">
+        <h4 style="margin-top:8px;color:#eaf6ff">Certified in Cybersecurity (CC)</h4>
+        <p class="muted" style="margin-top:6px">Aug 31, 2024</p>
+      </div>
 
-            <div class="glass-card" tabindex="0">
-              <img src="./assets/images/certi2.jpg" alt="Cert 2" class="cert-thumb">
-              <h4 style="margin-top:8px;color:#eaf6ff">Be A White Hat Hacker and Pen Tester</h4>
-              <p class="muted" style="margin-top:6px">May 20, 2024</p>
-            </div>
+      <!-- Certificate 2 -->
+      <div class="glass-card" tabindex="0">
+        <img src="./assets/images/certi2.jpg" alt="Cert 2" class="cert-thumb zoom-img">
+        <h4 style="margin-top:8px;color:#eaf6ff">Be A White Hat Hacker and Pen Tester</h4>
+        <p class="muted" style="margin-top:6px">May 20, 2024</p>
+      </div>
 
-            <div class="glass-card" tabindex="0">
-              <img src="./assets/images/certi3.jpg" alt="Cert 3" class="cert-thumb">
-              <h4 style="margin-top:8px;color:#eaf6ff">How To Become Highly Paid Hacker</h4>
-              <p class="muted" style="margin-top:6px">Mar 31, 2024</p>
-            </div>
-<div class="glass-card" tabindex="0">
-              <img src="./assets/images/certificate.jpg" alt="Cert 3" class="cert-thumb">
-              <h4 style="margin-top:8px;color:#eaf6ff">Cyber Threat Intelligence 101</h4>
-              <p class="muted" style="margin-top:6px">May 07, 2025</p>
-            </div>
+      <!-- Certificate 3 -->
+      <div class="glass-card" tabindex="0">
+        <img src="./assets/images/certi3.jpg" alt="Cert 3" class="cert-thumb zoom-img">
+        <h4 style="margin-top:8px;color:#eaf6ff">How To Become Highly Paid Hacker</h4>
+        <p class="muted" style="margin-top:6px">Mar 31, 2024</p>
+      </div>
 
-          </div>
-        </div>
-      </section>
+      <!-- Certificate 4 -->
+      <div class="glass-card" tabindex="0">
+        <img src="./assets/images/certificate.jpg" alt="Cert 4" class="cert-thumb zoom-img">
+        <h4 style="margin-top:8px;color:#eaf6ff">Cyber Threat Intelligence 101</h4>
+        <p class="muted" style="margin-top:6px">May 07, 2025</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMAGE MODAL -->
+<div id="imgModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);justify-content:center;align-items:center;z-index:9999;cursor:zoom-out">
+  <img id="modalImg" src="" style="max-width:90%;max-height:90%;border-radius:8px;box-shadow:0 8px 30px rgba(0,0,0,0.7)">
+</div>
+
+<script>
+  // Select all zoomable images
+  const zoomImages = document.querySelectorAll('.zoom-img');
+  const modal = document.getElementById('imgModal');
+  const modalImg = document.getElementById('modalImg');
+
+  zoomImages.forEach(img => {
+    img.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      modalImg.src = img.src;
+    });
+  });
+
+  // Close modal on click
+  modal.addEventListener('click', () => {
+    modal.style.display = 'none';
+    modalImg.src = '';
+  });
+</script>
+
 
       <!-- EDUCATION -->
       <section id="education" class="section">
