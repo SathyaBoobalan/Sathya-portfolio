@@ -34,15 +34,30 @@
       --glass-strong: rgba(255,255,255,0.04);
     }
 
-    html,body { height:100%; margin:0; background: linear-gradient(180deg, #040608 0%, #0b0f12 100%); color:#e6eef6; font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+    html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: linear-gradient(180deg, #040608 0%, #0b0f12 100%);
+    color: #e6eef6;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
-    /* PARTICLES CANVAS */
-    #particles {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-    }
+body {
+    min-height: 100vh;
+    background-attachment: fixed; /* prevents white flash on scroll */
+}
+
+#particles {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: transparent; /* allow body gradient to show */
+}
 
     /* Container */
     .site {
@@ -175,16 +190,16 @@
     <header class="hero" role="banner" aria-label="Hero section">
       <div class="hero-inner">
         <h1 class="title">I am <span class="neon">Sathya Boobalan</span></h1>
-        <p class="subtitle muted" style="margin-top:8px;">Penetration Tester · Bug Bounty Hunter · Security Researcher</p>
+        <p class="subtitle muted" style="margin-top:8px; font-size:1.4rem; " >Penetration Tester · Bug Bounty Hunter · Security Researcher</p>
 
-        <div class="mt-6 socials flex items-center justify-center gap-6" aria-hidden="false" role="navigation">
-          <a class="text-2xl" href="https://sathyaboobalan.tiiny.site" title="Resume" aria-label="Resume (download)" target="_blank" rel="noopener">
+        <div class="mt-6 socials flex items-center justify-center gap-6" aria-hidden="false"  role="navigation">
+          <a class="text-2xl" style="font-size:1.8rem; href="https://sathyaboobalan.tiiny.site" title="Resume" aria-label="Resume (download)" target="_blank" rel="noopener">
             <i class="fa fa-file-alt"></i>
           </a>
-          <a class="text-2xl" href="https://in.linkedin.com/in/sathya-boobalan-07b11024a" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener">
+          <a class="text-2xl" style="font-size:1.8rem; href="https://in.linkedin.com/in/sathya-boobalan-07b11024a" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener">
             <i class="fab fa-linkedin"></i>
           </a>
-          <a class="text-2xl" href="mailto:sathyaboobalan.r2003@gmail.com" title="Email" aria-label="Email">
+          <a class="text-2xl" style="font-size:1.8rem; href="mailto:sathyaboobalan.r2003@gmail.com" title="Email" aria-label="Email">
             <i class="fa fa-envelope"></i>
           </a>
         </div>
@@ -193,83 +208,99 @@
 
     <!-- MAIN -->
     <main class="main" role="main">
+<!-- ABOUT (polished conversational style) -->
+<section id="about" class="section">
+  <div class="maxw">
+    <div class="section-title">
+      <div class="bar" aria-hidden="true"></div>
+      <h2>About Me</h2>
+    </div>
 
-      <!-- ABOUT (kept as you liked — slightly restyled) -->
-      <section id="about" class="section">
-        <div class="maxw">
-          <div class="section-title">
-            <div class="bar" aria-hidden="true"></div>
-            <h2>About Me</h2>
-          </div>
-
-          <div class="glass-card">
-            <div class="row">
-              <div class="col-md-4 col-sm-12" style="padding-right:16px">
-                <img src="./assets/images/dp.jpg" alt="Sathya Boobalan" style="width:100%;border-radius:10px;object-fit:cover" />
-              </div>
-              <div class="col-md-8 col-sm-12" style="padding-left:16px">
-                <p style="margin-top:0;color:#dbefff">
-                  I am a cybersecurity enthusiast seeking an entry-level penetration testing position. With a keen interest in identifying and exploiting vulnerabilities, I aim to contribute to enhancing security measures.
-                </p>
-                <p style="color:#dbefff">
-                  I am passionate about uncovering and reporting weaknesses in the security structures of websites. As an active website bug bounty hunter, I utilize my expertise to identify vulnerabilities and fortify the defenses of online platforms, ensuring a safer and more secure web environment for all users.
-                </p>
-              </div>
-            </div>
-          </div>
+    <div class="glass-card">
+      <div class="row">
+        <div class="col-md-4 col-sm-12" style="padding-right:16px">
+          <img src="./assets/images/dp.jpg" alt="Sathya Boobalan" style="width:100%;border-radius:10px;object-fit:cover" />
         </div>
-      </section>
+        <div class="col-md-8 col-sm-12" style="padding-left:16px">
+          <p style="margin-top:0;color:#dbefff; line-height:1.6;">
+            I am a cybersecurity enthusiast and <strong>System Administrator</strong> at <strong>A. G. Padmavati Hospital</strong>, passionate about keeping IT systems secure and exploring innovative ways to protect sensitive data. I have led the research project <strong>“Blockchain and AI-based Medical Record Analysis for Bone Fracture on Cloud”</strong> (Aug–Nov 2024), integrating Blockchain, IPFS, and AI for secure medical record storage and automated fracture detection. This work was published in the <strong>Scopus-indexed Journal of Neonatal Surgery (JNS), 2025</strong>.<br><br>
 
-      <!-- PROJECTS -->
-      <section id="projects" class="section bg-black/40">
-        <div class="maxw">
-          <div class="section-title">
-            <div class="bar" aria-hidden="true"></div>
-            <h2>Projects</h2>
-          </div>
-
-          <div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
-            <!-- Project 1 -->
-            <article class="glass-card" aria-labelledby="proj1-title" tabindex="0">
-              <img src="./assets/images/project2.jpg" alt="Blockchain and AI" class="project-img">
-              <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
-                <div>
-                  <h3 id="proj1-title" style="font-weight:700;color:#eaf6ff;margin:0">Blockchain & AI for Medical Record Analysis</h3>
-                  <p class="muted" style="margin:6px 0 0;font-size:.92rem">Aug 2024 — Nov 2024</p>
-                </div>
-                <span class="tag" aria-hidden="true">AI • Blockchain</span>
-              </div>
-              <p class="muted" style="margin-top:.7rem;font-size:.95rem">Full-stack research project integrating blockchain, IPFS, and AI for secure medical record analysis and fracture detection.</p>
-              <div style="margin-top:12px;display:flex;gap:8px">
-                <a class="btn-cta" href="https://www.jneonatalsurg.com/index.php/jns/article/view/5836" aria-label="View report">
-                  <i class="fa fa-file-lines"></i><span class="muted" style="color:#cfeffb"> Journal</span>
-                </a>
-              </div>
-            </article>
-
-            <!-- Project 2 -->
-            <article class="glass-card" aria-labelledby="proj2-title" tabindex="0">
-              <img src="./assets/images/vapt1.jpg" alt="VAPT Project" class="project-img">
-              <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
-                <div>
-                  <h3 id="proj2-title" style="font-weight:700;color:#eaf6ff;margin:0">Securing the Small Business — VAPT</h3>
-                  <p class="muted" style="margin:6px 0 0;font-size:.92rem">Jan 2024 — Apr 2024</p>
-                </div>
-                <span class="tag">Pentest • VAPT</span>
-              </div>
-              <p class="muted" style="margin-top:.7rem;font-size:.95rem">Comprehensive vulnerability assessment and remediation plan for small-to-medium business infrastructure and web services.</p>
-              
-            </article>
-
-            <!-- More project slots (left empty for you to add) -->
-            <article>
-              
-            </article>
-
-          </div>
+            I am a detail-oriented and meticulous professional with a keen interest in joining a Penetration Testing team. I enjoy tackling Capture The Flag challenges, keeping abreast of emerging cybersecurity trends, and identifying vulnerabilities to enhance system security. My aim is to keep advancing in the field of cybersecurity and help create safer digital spaces for everyone, even behind the scenes.
+          </p>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
+    
+
+<!-- PROJECTS -->
+<section id="projects" class="section bg-black/40">
+  <div class="maxw">
+    <div class="section-title">
+      <div class="bar" aria-hidden="true"></div>
+      <h2 style="font-size:1.5rem;">Projects</h2>
+    </div>
+
+    <div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+      
+      <!-- Project 1 -->
+      <article class="glass-card" aria-labelledby="proj1-title" tabindex="0" style="padding:1.3rem; border:1px solid var(--card-border);">
+        <img src="./assets/images/project2.jpg" alt="Blockchain and AI" class="project-img">
+        
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px; margin-top:0.7rem;">
+          <div>
+            <h3 id="proj1-title" style="font-weight:700;color:#eaf6ff;margin:0; font-size:1.3rem;">
+              Blockchain and AI based Medical <br>Record Analysis for Bone Fracture <br>on Cloud
+            </h3>
+            <p class="muted" style="margin:4px 0 0; font-size:1.1rem;">Aug 2024 — Nov 2024</p>
+          </div>
+          <span class="tag" aria-hidden="true" style="font-size:1.1rem;">AI • Blockchain</span>
+        </div>
+
+        <p class="muted" style="margin-top:.7rem; font-size:1.1rem; line-height:1.6;">
+          Research project integrating Blockchain and IPFS for secure medical record storage, with AI for bone fracture detection.
+          <br><br>
+          <strong style="color:#cfeffb;">Published in Scopus-indexed Journal:</strong> 
+          <em>Journal of Neonatal Surgery (JNS)</em>, 2025.
+        </p>
+
+        <div style="margin-top:12px;display:flex;gap:8px; font-size:1.1rem;">
+          <a class="btn-cta" href="https://www.jneonatalsurg.com/index.php/jns/article/view/5836" target="_blank" aria-label="View publication">
+            <i class="fa fa-file-lines"></i>
+            <span class="muted" style="color:#cfeffb"> View Publication</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="glass-card" aria-labelledby="proj2-title" tabindex="0" style="padding:1.3rem; border:1px solid var(--card-border);">
+        <img src="./assets/images/vapt1.jpg" alt="VAPT Project" class="project-img">
+
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px; margin-top:0.7rem;">
+          <div>
+            <h3 id="proj2-title" style="font-weight:700;color:#eaf6ff;margin:0; font-size:1.3rem;">
+              Securing the Small Business — VAPT
+            </h3>
+            <p class="muted" style="margin:4px 0 0; font-size:1.1rem;">Jan 2024 — Apr 2024</p>
+          </div>
+          <span class="tag" style="font-size:1.1rem;">Pentest • VAPT</span>
+        </div>
+
+        <p class="muted" style="margin-top:.7rem;font-size:1.1rem; line-height:1.6;">
+          Comprehensive Vulnerability Assessment and Penetration Testing (VAPT) project for a small-to-medium business, covering network, web applications, and server infrastructure.  
+          The project focused on identifying security gaps and providing actionable recommendations to strengthen the overall security posture and reduce potential risks.
+        </p>
+      </article>
+
+      <!-- Empty project slot (for future use) -->
+      <article></article>
+    </div>
+  </div>
+</section>
+
+      
       <!-- SERVICES -->
       <section id="services" class="section">
         <div class="maxw">
@@ -440,10 +471,10 @@
           </p>
           <p class="muted">Location: India</p>
           <div style="margin-top:8px;display:flex;justify-content:center;gap:12px">
-            <a href="https://sathyaboobalan.tiiny.site" class="text-2xl" title="Resume" target="_blank" rel="noopener">
+            <a href="https://sathyaboobalan.tiiny.site" style="font-size:1.8rem; class="text-2xl" title="Resume" target="_blank" rel="noopener">
               <i class="fa fa-file-alt" style="color:#cfeffb"></i>
             </a>
-            <a href="https://in.linkedin.com/in/sathya-boobalan-07b11024a" class="text-2xl" title="LinkedIn" target="_blank" rel="noopener">
+            <a href="https://in.linkedin.com/in/sathya-boobalan-07b11024a" style="font-size:1.8rem; class="text-2xl" title="LinkedIn" target="_blank" rel="noopener">
               <i class="fab fa-linkedin" style="color:#cfeffb"></i>
             </a>
           </div>
@@ -458,7 +489,7 @@
     <!-- FOOTER -->
     <footer>
       <div class="maxw">
-        <p style="margin:0">© <span id="year"></span> Sathya Boobalan. Built for bug bounty & security research.</p>
+        <p style="margin:0">© <span id="year"></span> Sathya Boobalan. All rights reserved.</p>
       </div>
     </footer>
   </div>
