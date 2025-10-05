@@ -51,11 +51,20 @@
     min-height: 100vh;
     background-attachment: fixed;
   }
- /* education */
-    .edu-item { display:flex; gap:12px; align-items:flex-start; }
-    .edu-year { color:var(--neon); font-weight:700; min-width:86px; }
+.cert-thumb {
+  width: 100%;
+  height: 150px;              /* fixed height for all images */
+  object-fit: cover;          /* ensures image fills box without distortion */
+  border-radius: 8px;         /* same rounded look */
+  display: block;
+}
 
 
+
+
+  /* Education */
+  .edu-item { display:flex; gap:12px; align-items:flex-start; }
+  .edu-year { color:var(--neon); font-weight:700; min-width:86px; }
 
   /* === PARTICLES CANVAS === */
   #particles {
@@ -72,35 +81,34 @@
     z-index: 5;
     min-height: 100vh;
   }
-/* BUTTONS (Glass / Neon Style) */
-/* BUTTONS (Glass / Neon Style) */
-.btn-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;                  /* increased gap between icon & text */
-  padding: 0.85rem 1.8rem;    /* bigger padding */
-  border: 1px solid rgba(14,165,233,0.3);
-  border-radius: 12px;         /* slightly more rounded */
-  background: rgba(14,165,233,0.05);
-  color: #cfeffb;
-  font-weight: 600;
-  font-size: 1.25rem;          /* bigger text */
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
 
-.btn-cta i {
-  font-size: 1.35rem;          /* bigger icon */
-}
+  /* BUTTONS (Glass / Neon Style) */
+  .btn-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 1rem 2rem;
+    border: 1px solid rgba(14,165,233,0.3);
+    border-radius: 12px;
+    background: rgba(14,165,233,0.05);
+    color: #cfeffb;
+    font-weight: 700;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
 
-.btn-cta:hover {
-  background: rgba(14,165,233,0.15);
-  border-color: rgba(14,165,233,0.6);
-  color: #0ea5e9;
-  transform: translateY(-2px) scale(1.08);  /* slightly stronger hover scale */
-  text-shadow: 0 0 10px #0ea5e9, 0 0 20px #0ea5e9;
-}
+  .btn-cta i {
+    font-size: 1.4rem;
+  }
 
+  .btn-cta:hover {
+    background: rgba(14,165,233,0.15);
+    border-color: rgba(14,165,233,0.6);
+    color: #0ea5e9;
+    transform: translateY(-2px) scale(1.08);
+    text-shadow: 0 0 10px #0ea5e9, 0 0 20px #0ea5e9;
+  }
 
   /* === CYBER GLOW HEADER === */
   .cyber-header {
@@ -112,6 +120,7 @@
     overflow: hidden;
     background: radial-gradient(circle at 50% 50%, rgba(14,165,233,0.1), rgba(0,0,0,0.95));
     text-align: center;
+    padding: 1rem;
   }
 
   .cyber-header::before {
@@ -138,70 +147,56 @@
   }
 
   .glow-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 800;
+    font-size: clamp(3rem, 6vw, 6rem);
+    font-weight: 900;
     color: var(--neon);
-    text-shadow:
-      0 0 8px var(--neon),
-      0 0 20px var(--neon),
-      0 0 40px var(--neon);
+    text-shadow: 0 0 8px var(--neon), 0 0 20px var(--neon), 0 0 40px var(--neon);
     animation: flicker 3s infinite;
   }
-/* === GLITCH-TYPEWRITER ANIMATION === */
-.glitch-typewriter {
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-  white-space: nowrap;
-  letter-spacing: 0.15em;
-}
 
-.glitch-typewriter .text {
-  display: inline-block;
-  animation: typewriter 3s steps(18) 1 forwards, flicker 2s infinite;
-}
-
-.glitch-typewriter .cursor {
-  display: inline-block;
-  background: var(--neon);
-  width: 0.15em;
-  margin-left: 2px;
-  animation: blink 0.8s step-end infinite;
-}
-
-@keyframes typewriter {
-  0% { width: 0; }
-  100% { width: 18ch; } /* match number of characters in "SATHYA BOOBALAN" */
-}
-
-@keyframes blink {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0; }
-}
-
-/* Optional: subtle glitch flicker effect */
-@keyframes flicker {
-  0%, 18%, 22%, 25%, 53%, 57%, 100% {
-    text-shadow:
-      0 0 12px var(--neon),
-      0 0 22px var(--neon),
-      0 0 42px var(--neon);
-    opacity: 1;
+  .glow-subtitle {
+    margin-top: 12px;
+    font-size: 2.3rem;
+    font-weight: 600;
+    color: rgba(224,247,255,0.9);
+    letter-spacing: 0.5px;
   }
-  20%, 24%, 55% {
-    text-shadow: 0 0 4px var(--neon), 0 0 10px var(--neon);
-    opacity: 0.35;
-  }
-}
 
+  /* GLITCH-TYPEWRITER */
+  .glitch-typewriter {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    letter-spacing: 0.15em;
+  }
+
+  .glitch-typewriter .text {
+    display: inline-block;
+    animation: typewriter 3s steps(18) 1 forwards, flicker 2s infinite;
+  }
+
+  .glitch-typewriter .cursor {
+    display: inline-block;
+    background: var(--neon);
+    width: 0.15em;
+    margin-left: 2px;
+    animation: blink 0.8s step-end infinite;
+  }
+
+  @keyframes typewriter {
+    0% { width: 0; }
+    100% { width: 18ch; }
+  }
+
+  @keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+  }
 
   @keyframes flicker {
     0%, 18%, 22%, 25%, 53%, 57%, 100% {
       opacity: 1;
-      text-shadow:
-        0 0 12px var(--neon),
-        0 0 22px var(--neon),
-        0 0 42px var(--neon);
+      text-shadow: 0 0 12px var(--neon), 0 0 22px var(--neon), 0 0 42px var(--neon);
     }
     20%, 24%, 55% {
       opacity: 0.35;
@@ -209,64 +204,45 @@
     }
   }
 
-  .glow-subtitle {
-    margin-top: 10px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: rgba(224,247,255,0.85);
-    letter-spacing: 0.5px;
-  }
-
-  /* === HERO (fallback) === */
+  /* HERO */
   .hero {
     background: #000;
-    padding: 6rem 1rem 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 6rem 1.5rem 4rem;
     text-align: center;
-    position: relative;
-    overflow: hidden;
   }
 
-  .hero-inner {
-    max-width: 980px;
-    z-index: 2;
-  }
+  .hero-inner { max-width: 980px; margin: 0 auto; }
 
   .title {
-    font-size: clamp(28px, 5vw, 46px);
+    font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 800;
     letter-spacing: -0.02em;
     color: #e6f7ff;
-    text-shadow: 0 8px 40px rgba(14,165,233,0.06);
   }
 
   .title .neon {
     color: var(--neon);
-    text-shadow:
-      0 0 8px rgba(14,165,233,0.18),
-      0 8px 30px rgba(14,165,233,0.06);
+    text-shadow: 0 0 8px rgba(14,165,233,0.18), 0 8px 30px rgba(14,165,233,0.06);
   }
 
   .subtitle {
     color: var(--muted);
-    margin-top: 0.5rem;
+    margin-top: 0.75rem;
     font-weight: 600;
-    font-size: 1.05rem;
+    font-size: 1.2rem;
   }
 
   /* SOCIAL ICONS */
   .social-icons {
-    margin-top: 24px;
+    margin-top: 26px;
     display: flex;
     justify-content: center;
-    gap: 22px;
+    gap: 24px;
   }
 
   .social-icons a {
     color: var(--neon);
-    font-size: 1.5rem;
+    font-size: 1.9rem;
     transition: all 0.3s ease;
   }
 
@@ -276,39 +252,39 @@
     transform: scale(1.2);
   }
 
-  /* === SECTION LAYOUT === */
-  .section { padding: 4.5rem 1rem; }
+  /* SECTION LAYOUT */
+  .section { padding: 5rem 1.5rem; }
   .maxw { max-width: 1100px; margin: 0 auto; }
 
   .section-title {
     display: flex;
     align-items: baseline;
     gap: 14px;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
   }
 
   .section-title h2 {
-    font-size: 1.45rem;
-    font-weight: 700;
+    font-size: 1.8rem;
+    font-weight: 800;
     color: #eaf6ff;
   }
 
   .section-title .bar {
-    height: 36px;
+    height: 40px;
     width: 6px;
     border-radius: 4px;
     background: linear-gradient(180deg,var(--neon), #7dd3fc);
     box-shadow: 0 6px 18px rgba(14,165,233,0.08);
   }
 
-  .muted { color: var(--muted); }
+  .muted { color: var(--muted); font-size: 1.1rem; }
 
   /* GLASS CARD */
   .glass-card {
     background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
     border: 1px solid var(--card-border);
     border-radius: 12px;
-    padding: 1.15rem;
+    padding: 1.25rem;
     box-shadow: 0 8px 30px rgba(2,6,23,0.6);
     transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
     overflow:hidden;
@@ -319,52 +295,92 @@
     border-color: rgba(14,165,233,0.22);
     box-shadow: 0 30px 60px rgba(2,6,23,0.7);
   }
-    /* contact */
-    .contact-card { display:flex; gap:14px; align-items:center; justify-content:space-between; padding:1rem; }
-    .btn-cta {
-      background: linear-gradient(90deg, rgba(14,165,233,0.14), rgba(96,165,250,0.06));
-      color: #cfeffb; padding:.6rem 1rem; border-radius:10px; border:1px solid rgba(14,165,233,0.12);
-      display:inline-flex; gap:.6rem; align-items:center; font-weight:700;
-    }
 
-  /* Project image */
-  .project-img { width:100%; height:190px; object-fit:cover; border-radius:8px; display:block; margin-bottom:.75rem; }
-
-  /* Small labels / tags */
-  .tag {
-    display:inline-block; font-size:.78rem; padding:.35rem .6rem; border-radius:999px; background: rgba(14,165,233,0.06); color: #bfeeff; border:1px solid rgba(14,165,233,0.08);
+  /* Contact */
+  .contact-card {
+    display:flex; gap:14px; align-items:center; justify-content:space-between; padding:1rem;
   }
 
-  /* Services icon */
+  .btn-cta {
+    background: linear-gradient(90deg, rgba(14,165,233,0.14), rgba(96,165,250,0.06));
+    color: #cfeffb;
+    padding:.8rem 1.3rem;
+    border-radius:10px;
+    border:1px solid rgba(14,165,233,0.12);
+    display:inline-flex;
+    gap:.6rem;
+    align-items:center;
+    font-weight:700;
+  }
+
+  /* Project image */
+  .project-img {
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:8px;
+    display:block;
+    margin-bottom:.75rem;
+  }
+
+  /* Tag */
+  .tag {
+    display:inline-block;
+    font-size:.85rem;
+    padding:.4rem .7rem;
+    border-radius:999px;
+    background: rgba(14,165,233,0.06);
+    color: #bfeeff;
+    border:1px solid rgba(14,165,233,0.08);
+  }
+
+  /* Service icon */
   .service-icon {
-    width:68px; height:68px; display:inline-grid; place-items:center; border-radius:12px;
+    width:72px; height:72px;
+    display:inline-grid;
+    place-items:center;
+    border-radius:12px;
     background: linear-gradient(135deg, rgba(14,165,233,0.08), rgba(125,211,252,0.02));
     box-shadow: 0 6px 18px rgba(14,165,233,0.04) inset;
-    margin-bottom:.9rem;
+    margin-bottom:1rem;
   }
 
   /* Footer */
-  footer { padding:2rem 1rem; text-align:center; color:var(--muted); border-top:1px solid rgba(255,255,255,0.02); }
+  footer {
+    padding:2.5rem 1rem;
+    text-align:center;
+    color:var(--muted);
+    border-top:1px solid rgba(255,255,255,0.02);
+    font-size:1rem;
+  }
   footer span { color: var(--neon); }
 
   /* RESPONSIVE */
   @media (max-width: 768px) {
-    .glow-title { font-size: 2.2rem; }
-    .glow-subtitle { font-size: 1rem; }
+    .glow-title { font-size: 3rem; }
+    .glow-subtitle { font-size: 1.4rem; }
+    .title { font-size: 2rem; }
+    .subtitle { font-size: 1rem; }
+    .section-title h2 { font-size: 1.4rem; }
     .hero { padding:4rem 1rem 3rem; }
-    .project-img { height:150px; }
- .contact-grid {
-      grid-template-columns: 1fr !important;
-    }
-
-    .contact-grid aside {
-      margin-top: 18px;
-    }
+    .project-img { height:160px; }
+    .contact-grid { grid-template-columns: 1fr !important; }
+    .contact-grid aside { margin-top: 18px; }
   }
 
+  @media (max-width: 480px) {
+    .glow-title { font-size: 3rem; }
+    .glow-subtitle { font-size: 1.4rem; }
+    .btn-cta { font-size: 1rem; padding: 0.7rem 1rem; }
+    .section { padding: 3rem 1rem; }
+  }
+@media (max-width: 768px) {
+  .cert-thumb {
+    height: 160px;   /* slightly smaller for phones */
+  }
+}
 
-
-  </style>
+</style>
 </head>
 
 
@@ -417,7 +433,7 @@
           <img src="./assets/images/dp.jpg" alt="Sathya Boobalan" style="width:100%;border-radius:10px;object-fit:cover" />
         </div>
         <div class="col-md-8 col-sm-12" style="padding-left:16px">
-          <p style="margin-top:0;color:#dbefff; line-height:1.6;">
+          <p style="margin-top:0;color:#dbefff; line-height:1.6; " >
             I am a cybersecurity enthusiast and <strong>System Administrator</strong> at <strong>A. G. Padmavati Hospital</strong>, passionate about keeping IT systems secure and exploring innovative ways to protect sensitive data. I have led the research project <strong>“Blockchain and AI-based Medical Record Analysis for Bone Fracture on Cloud”</strong> (Aug–Nov 2024), integrating Blockchain, IPFS, and AI for secure medical record storage and automated fracture detection. This work was published in the <strong>Scopus-indexed Journal of Neonatal Surgery (JNS), 2025</strong>.<br><br>
 
             I am a detail-oriented and meticulous professional with a keen interest in joining a Penetration Testing team. I enjoy tackling Capture The Flag challenges, keeping abreast of emerging cybersecurity trends, and identifying vulnerabilities to enhance system security. My aim is to keep advancing in the field of cybersecurity and help create safer digital spaces for everyone, even behind the scenes.
@@ -435,7 +451,7 @@
   <div class="maxw">
     <div class="section-title">
       <div class="bar" aria-hidden="true"></div>
-      <h2 style="font-size:1.5rem;">Projects</h2>
+      <h2>Projects</h2>
     </div>
 
     <div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
@@ -446,15 +462,15 @@
         
         <div style="display:flex;justify-content:space-between;align-items:center;gap:12px; margin-top:0.7rem;">
           <div>
-            <h3 id="proj1-title" style="font-weight:700;color:#eaf6ff;margin:0; font-size:1.3rem;">
-              Blockchain and AI based Medical <br>Record Analysis for Bone Fracture <br>on Cloud
+            <h3 id="proj1-title" style="font-weight:700;color:#eaf6ff;margin:0; font-size:1.5rem;">
+              Blockchain and AI based <br>Medical Record Analysis <br>for Bone Fracture on Cloud
             </h3>
-            <p class="muted" style="margin:4px 0 0; font-size:1.1rem;">Aug 2024 — Nov 2024</p>
+            <p class="muted" style="margin:4px 0 0; font-size:1.3rem;">Aug 2024 — Nov 2024</p>
           </div>
-          <span class="tag" aria-hidden="true" style="font-size:1.1rem;">AI • Blockchain</span>
+          <span class="tag" aria-hidden="true" style="font-size:1.3rem;">AI • Blockchain</span>
         </div>
 
-        <p class="muted" style="margin-top:.7rem; font-size:1.1rem; line-height:1.6;">
+        <p class="muted" style="margin-top:.7rem; font-size:1.3rem; line-height:1.6;">
           Research project integrating Blockchain and IPFS for secure medical record storage, with AI for bone fracture detection.
           <br><br>
           <strong style="color:#cfeffb;">Published in Scopus-indexed Journal:</strong> 
@@ -475,15 +491,15 @@
 
         <div style="display:flex;justify-content:space-between;align-items:center;gap:12px; margin-top:0.7rem;">
           <div>
-            <h3 id="proj2-title" style="font-weight:700;color:#eaf6ff;margin:0; font-size:1.3rem;">
-              Securing the Small Business — VAPT
-            </h3>
-            <p class="muted" style="margin:4px 0 0; font-size:1.1rem;">Jan 2024 — Apr 2024</p>
+            <h3 id="proj2-title" style="font-weight:700;color:#eaf6ff;margin:0; font-size:1.5rem;">
+              Securing the Small Business <br>— VAPT
+            </h3><br>
+            <p class="muted" style="margin:4px 0 0; font-size:1.3rem;">Jan 2024 — Apr 2024</p>
           </div>
-          <span class="tag" style="font-size:1.1rem;">Pentest • VAPT</span>
+          <span class="tag" style="font-size:1.3rem;">Pentest • VAPT</span>
         </div>
 
-        <p class="muted" style="margin-top:.7rem;font-size:1.1rem; line-height:1.6;">
+        <p class="muted" style="margin-top:.7rem;font-size:1.3rem; line-height:1.6;">
           Comprehensive Vulnerability Assessment and Penetration Testing (VAPT) project for a small-to-medium business, covering network, web applications, and server infrastructure.  
           The project focused on identifying security gaps and providing actionable recommendations to strengthen the overall security posture and reduce potential risks.
         </p>
@@ -507,26 +523,26 @@
           <div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
             <div class="glass-card" tabindex="0">
               <div class="service-icon" aria-hidden="true"><i class="fa fa-shield-alt fa-lg" style="color:var(--neon)"></i></div>
-              <h3 style="margin-top:6px;color:#eaf6ff">Vulnerability Analysis</h3>
-              <p class="muted" style="margin-top:8px">Thorough scanning and validation of vulnerabilities with prioritized risk ratings and remediation suggestions.</p>
+              <h3 style="margin-top:6px;color:#eaf6ff ;font-size:1.5rem;">Vulnerability Analysis</h3>
+              <p class="muted" style="margin-top:8px; font-size:1.3rem;">Thorough scanning and validation of vulnerabilities with prioritized risk ratings and remediation suggestions.</p>
             </div>
 
             <div class="glass-card" tabindex="0">
               <div class="service-icon" aria-hidden="true"><i class="fa fa-bug fa-lg" style="color:var(--neon)"></i></div>
-              <h3 style="margin-top:6px;color:#eaf6ff">Penetration Testing</h3>
-              <p class="muted" style="margin-top:8px">Web application and network penetration testing with proof-of-concept exploits and step-by-step remediation guidance.</p>
+              <h3 style="margin-top:6px;color:#eaf6ff; font-size:1.5rem;">Penetration Testing</h3>
+              <p class="muted" style="margin-top:8px;font-size:1.3rem;">Web application and network penetration testing with proof-of-concept exploits and step-by-step remediation guidance.</p>
             </div>
 
             <div class="glass-card" tabindex="0">
               <div class="service-icon" aria-hidden="true"><i class="fa fa-file-contract fa-lg" style="color:var(--neon)"></i></div>
-              <h3 style="margin-top:6px;color:#eaf6ff">CVE / Disclosure Reports</h3>
-              <p class="muted" style="margin-top:8px">Clear, professional writeups formatted for vendor disclosure and program submission (CVE-ready).</p>
+              <h3 style="margin-top:6px;color:#eaf6ff; font-size:1.5rem;">CVE / Disclosure Reports</h3>
+              <p class="muted" style="margin-top:8px; font-size:1.3rem;">Clear, professional writeups formatted for vendor disclosure and program submission (CVE-ready).</p>
             </div>
 
             <div class="glass-card" tabindex="0">
               <div class="service-icon" aria-hidden="true"><i class="fa fa-lock fa-lg" style="color:var(--neon)"></i></div>
-              <h3 style="margin-top:6px;color:#eaf6ff">Security Consulting</h3>
-              <p class="muted" style="margin-top:8px">Advisory and mitigation planning for long-term security program improvements and secure SDLC integration.</p>
+              <h3 style="margin-top:6px;color:#eaf6ff; font-size:1.5rem;">Security Consulting</h3>
+              <p class="muted" style="margin-top:8px; font-size:1.3rem;">Advisory and mitigation planning for long-term security program improvements and secure SDLC integration.</p>
             </div>
           </div>
         </div>
@@ -544,29 +560,29 @@
       <!-- Certificate 1 -->
       <div class="glass-card" tabindex="0">
         <img src="./assets/images/certi1.jpg" alt="Cert 1" class="cert-thumb zoom-img">
-        <h4 style="margin-top:8px;color:#eaf6ff">Certified in Cybersecurity (CC)</h4>
-        <p class="muted" style="margin-top:6px">Aug 31, 2024</p>
+        <h4 style="margin-top:8px;color:#eaf6ff; font-size:1.5rem;">Certified in Cybersecurity (CC)</h4>
+        <p class="muted" style="margin-top:6px; font-size:1.3rem;">Aug 31, 2024</p>
       </div>
 
       <!-- Certificate 2 -->
       <div class="glass-card" tabindex="0">
         <img src="./assets/images/certi2.jpg" alt="Cert 2" class="cert-thumb zoom-img">
-        <h4 style="margin-top:8px;color:#eaf6ff">Be A White Hat Hacker and Pen Tester</h4>
-        <p class="muted" style="margin-top:6px">May 20, 2024</p>
+        <h4 style="margin-top:8px;color:#eaf6ff; font-size:1.5rem;">Be A White Hat Hacker and Pen Tester</h4>
+        <p class="muted" style="margin-top:6px; font-size:1.3rem;">May 20, 2024</p>
       </div>
 
       <!-- Certificate 3 -->
       <div class="glass-card" tabindex="0">
         <img src="./assets/images/certi3.jpg" alt="Cert 3" class="cert-thumb zoom-img">
-        <h4 style="margin-top:8px;color:#eaf6ff">How To Become Highly Paid Hacker</h4>
-        <p class="muted" style="margin-top:6px">Mar 31, 2024</p>
+        <h4 style="margin-top:8px;color:#eaf6ff; font-size:1.5rem;">How To Become Highly Paid Hacker</h4>
+        <p class="muted" style="margin-top:6px; font-size:1.3rem;">Mar 31, 2024</p>
       </div>
 
       <!-- Certificate 4 -->
       <div class="glass-card" tabindex="0">
         <img src="./assets/images/certificate.jpg" alt="Cert 4" class="cert-thumb zoom-img">
-        <h4 style="margin-top:8px;color:#eaf6ff">Cyber Threat Intelligence 101</h4>
-        <p class="muted" style="margin-top:6px">May 07, 2025</p>
+        <h4 style="margin-top:8px;color:#eaf6ff; font-size:1.5rem;">Cyber Threat Intelligence 101</h4>
+        <p class="muted" style="margin-top:6px; font-size:1.3rem;">May 07, 2025</p>
       </div>
     </div>
   </div>
@@ -609,20 +625,20 @@
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px">
             <div class="glass-card">
               <div class="edu-item">
-                <div class="edu-year">2006–2021</div>
+                <div class="edu-year" style="font-size:1.5rem;">2006–2021</div>
                 <div>
-                  <h4 style="margin:0;color:#eaf6ff">SSLC & HSC</h4>
-                  <p class="muted" style="margin-top:6px">Amalorpavam Higher Secondary School</p>
+                  <h4 style="margin:0;color:#eaf6ff; font-size:1.5rem;">SSLC & HSC</h4>
+                  <p class="muted" style="margin-top:6px; font-size:1.3rem;">Amalorpavam Higher Secondary School</p>
                 </div>
               </div>
             </div>
 
             <div class="glass-card">
               <div class="edu-item">
-                <div class="edu-year">2021–2025</div>
+                <div class="edu-year" style="font-size:1.5rem;">2021–2025</div>
                 <div>
-                  <h4 style="margin:0;color:#eaf6ff">B.Tech (CSE)</h4>
-                  <p class="muted" style="margin-top:6px">Mankula Vinayagar Institute of Technology</p>
+                  <h4 style="margin:0;color:#eaf6ff; font-size:1.5rem;">B.Tech (CSE)</h4>
+                  <p class="muted" style="margin-top:6px; font-size:1.3rem;">Mankula Vinayagar Institute of Technology</p>
                 </div>
               </div>
             </div>
@@ -644,8 +660,8 @@
       <div>
         <div class="glass-card contact-card">
           <div>
-            <h3 style="margin:0;color:#eaf6ff">Ready to collaborate?</h3>
-            <p class="muted" style="margin:6px 0 0">
+            <h3 style="margin:0;color:#eaf6ff; font-size:1.5rem;">Ready to collaborate?</h3>
+            <p class="muted" style="margin:6px 0 0; font-size:1.3rem;">
               For engagements, vulnerability disclosure, or mentoring — reach out.
             </p>
           </div>
@@ -662,11 +678,11 @@
 
       <aside>
         <div class="glass-card" style="text-align:center;">
-          <h4 style="margin:0;color:#eaf6ff">Quick Info</h4>
-          <p class="muted" style="margin-top:8px">
+          <h4 style="margin:0;color:#eaf6ff; font-size:1.5rem;">Quick Info</h4>
+          <p class="muted" style="margin-top:8px; font-size:1.3rem;">
             Email: <a href="mailto:sathyaboobalan.r2003@gmail.com" style="color:var(--neon)">sathyaboobalan.r2003@gmail.com</a>
           </p>
-          <p class="muted">Location: India</p>
+          <p class="muted" style="font-size:1.3rem;">Location: India</p>
           <div style="margin-top:8px;display:flex;justify-content:center;gap:12px">
             <a href="https://sathyaboobalan.tiiny.site" style="font-size:1.8rem; class="text-2xl" title="Resume" target="_blank" rel="noopener">
               <i class="fa fa-file-alt" style="color:#cfeffb"></i>
@@ -687,7 +703,7 @@
     <!-- FOOTER -->
     <footer>
       <div class="maxw">
-        <p style="margin:0">© <span id="year"></span> Sathya Boobalan. All rights reserved.</p>
+        <p style="margin:0; font-size:1.3rem;">© <span id="year"></span> Sathya Boobalan. All rights reserved.</p>
       </div>
     </footer>
   </div>
